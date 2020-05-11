@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>My Tasks</h1>
+    <% @tasks.each do |task| %>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="customCheck1" <%= task.completed ? "checked" :  " " %>/>
+        <label class="custom-control-label" for="customCheck1"><%= link_to task.title, task_path(task) %></label>
+        <%= link_to "🗑", destroy_task_path(task), method: :delete %>
+      </div>
+    <% end %>
+</div>
+<%= link_to "Add a new task", new_task_path %>
